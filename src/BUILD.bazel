@@ -1,0 +1,26 @@
+cc_library(
+    name = "common_headers",
+    hdrs = [
+        "error_code.h",
+        "common.h"
+    ],
+    visibility = ["//visibility:public"],
+)
+
+
+cc_library(
+    name = "module",
+    srcs = ["module.cpp"],
+    hdrs = ["module.h"],
+    deps = [":common_headers"],
+    visibility = ["//visibility:public"],
+)
+
+
+cc_binary(
+    name = "main",
+    srcs = ["main.cpp"],
+    deps = [":module",
+           "//src/modules/hello:hello",
+    ],
+)

@@ -1,0 +1,8 @@
+
+cc_library(
+    name = "hello",
+    srcs = ["hello_world.cpp"],
+    deps = ["//src:module"],
+    visibility = ["//visibility:public"],
+    alwayslink = True,
+)
